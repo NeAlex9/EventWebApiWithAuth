@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Events.Services.EntityFramework.Entities
 {
+    [Table("event")]
     public class EventDTO
     {
         [Key]
@@ -13,15 +14,15 @@ namespace Events.Services.EntityFramework.Entities
         [Column(TypeName = "nvarchar")]
         public string Title { get; set; }
 
-        [Column(TypeName = "nvarchar")]
+        [Column(TypeName = "ntext")]
         public string? Description { get; set; }
 
         [Required]
-        [Column(TypeName = "nvarchar")]
+        [Column(TypeName = "ntext")]
         public string Plan { get; set; }
 
         [Required]
-        [Column(TypeName = "datetime")]
+        [Column(name: "event_date_time", TypeName = "datetime")]
         public DateTime EventDateTime { get; set; }
 
         [Required]
@@ -35,9 +36,11 @@ namespace Events.Services.EntityFramework.Entities
         public string Address { get; set; }
 
         [ForeignKey("Organizer")]
+        [Column(name: "organizer_id")]
         public int? OrganizerId { get; set; }
 
         [ForeignKey("Speaker")]
+        [Column(name: "speaker_id")]
         public int? SpeakerId { get; set; }
         
         public virtual OrganizerDTO Organizer { get; set; }

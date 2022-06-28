@@ -90,6 +90,7 @@ namespace Events.Services.EntityFramework.Services
                 return true;
             }
 
+            _context.Events.Remove(dto);
             var updatedRows = await _context.SaveChangesAsync();
             return updatedRows > 0;
         }

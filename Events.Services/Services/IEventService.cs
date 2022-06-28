@@ -4,11 +4,11 @@ namespace Events.Services.Services
 {
     public interface IEventService
     {
-        IAsyncEnumerable<Event> GetAllEvents();
-        Task<Event> GetById(int id);
-        Task<Event> Create(Event e);
-        Task<Event> Update(int id, Event e);
-        Task<Event> Delete(int id);
+        IAsyncEnumerable<Event> GetAllEventsAsync();
+        Task<Event?> GetByIdAsync(int id);
+        Task<int> CreateAsync(Event e);
+        Task<bool> UpdateAsync(int id, Event e);
+        Task<bool> DeleteAsync(int id);
 
     }
 }

@@ -13,5 +13,14 @@ namespace Events.Services.EntityFramework.Context
         public DbSet<EventDTO> Events { get; set; }
         public DbSet<OrganizerDTO> Organizers { get; set; }
         public DbSet<SpeakerDTO> Speakers { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder
+                .Entity<EventDTO>()
+                .Property(e => e.Id)
+                .ValueGeneratedOnAdd();
+        }
     }
 }

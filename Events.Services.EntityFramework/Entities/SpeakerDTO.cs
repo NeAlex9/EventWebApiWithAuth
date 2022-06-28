@@ -19,7 +19,7 @@ namespace Events.Services.EntityFramework.Entities
         [Column(TypeName = "nvarchar")]
         public string Name { get; set; }
 
-        [InverseProperty("Event")]
+        [InverseProperty("Speaker")]
         public virtual ICollection<EventDTO>? Events { get; set; }
     }
 }
