@@ -9,7 +9,6 @@ namespace Events.Services.EntityFramework
         public MapperProfile()
         {
             this.CreateMap<Event, EventDTO>()
-                .MaxDepth(1)
                 .ReverseMap();
 
             this.CreateMap<Organizer, OrganizerDTO>()

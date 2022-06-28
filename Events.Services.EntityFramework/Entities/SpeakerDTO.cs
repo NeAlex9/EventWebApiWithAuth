@@ -14,10 +14,9 @@ namespace Events.Services.EntityFramework.Entities
         [Key]
         public int Id { get; set; }
 
-        [Required]
         [MaxLength(100)]
         [Column(TypeName = "nvarchar")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [InverseProperty("Speaker")]
         public virtual ICollection<EventDTO>? Events { get; set; }

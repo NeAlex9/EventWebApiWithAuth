@@ -9,31 +9,26 @@ namespace Events.Services.EntityFramework.Entities
         [Key]
         public int Id { get; set; }
 
-        [Required]
         [MaxLength(100)]
         [Column(TypeName = "nvarchar")]
-        public string Title { get; set; }
+        public string? Title { get; set; }
 
         [Column(TypeName = "ntext")]
         public string? Description { get; set; }
 
-        [Required]
         [Column(TypeName = "ntext")]
-        public string Plan { get; set; }
+        public string? Plan { get; set; }
 
-        [Required]
         [Column(name: "event_date_time", TypeName = "datetime")]
-        public DateTime EventDateTime { get; set; }
+        public DateTime? EventDateTime { get; set; }
 
-        [Required]
         [MaxLength(50)]
         [Column(TypeName = "nvarchar")]
-        public string City { get; set; }
+        public string? City { get; set; }
 
-        [Required]
         [MaxLength(100)]
         [Column(TypeName = "nvarchar")]
-        public string Address { get; set; }
+        public string? Address { get; set; }
 
         [ForeignKey("Organizer")]
         [Column(name: "organizer_id")]
@@ -43,7 +38,7 @@ namespace Events.Services.EntityFramework.Entities
         [Column(name: "speaker_id")]
         public int? SpeakerId { get; set; }
         
-        public virtual OrganizerDTO Organizer { get; set; }
-        public virtual SpeakerDTO Speaker { get; set; }
+        public virtual OrganizerDTO? Organizer { get; set; }
+        public virtual SpeakerDTO? Speaker { get; set; }
     }
 }

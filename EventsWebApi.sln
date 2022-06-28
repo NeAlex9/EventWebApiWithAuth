@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventsWebApi", "EventsWebApi\EventsWebApi.csproj", "{61F98D4F-BBEF-49C6-9F02-F125B8A72A4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventsWebApi", "EventsWebApi\EventsWebApi.csproj", "{61F98D4F-BBEF-49C6-9F02-F125B8A72A4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Events.Services", "Events.Services\Events.Services.csproj", "{709BBE87-02E9-4FBE-8C57-0F8CDC057BAE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Events.Services", "Events.Services\Events.Services.csproj", "{709BBE87-02E9-4FBE-8C57-0F8CDC057BAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Events.Services.EntityFramework", "Events.Services.EntityFramework\Events.Services.EntityFramework.csproj", "{95659F93-02A4-469E-85B2-5DC37637B4D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Events.Services.EntityFramework", "Events.Services.EntityFramework\Events.Services.EntityFramework.csproj", "{95659F93-02A4-469E-85B2-5DC37637B4D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

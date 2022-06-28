@@ -27,6 +27,8 @@ namespace Events.Services.EntityFramework.Services
                 .Select(e => _mapper.Map<Event>(e))
                 .AsAsyncEnumerable();
 
+
+
         public async Task<Event?> GetByIdAsync(int id)
         {
             if (id <= 0)
@@ -43,7 +45,7 @@ namespace Events.Services.EntityFramework.Services
             return dto is null ? null : _mapper.Map<Event>(dto);
         }
 
-        public async Task<int> CreateAsync(Event e) 
+        public async Task<int> CreateAsync(Event e)
         {
             ArgumentNullException.ThrowIfNull(e);
             var dto = _mapper.Map<EventDTO>(e);
