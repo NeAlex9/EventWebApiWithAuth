@@ -23,11 +23,11 @@ namespace Events.Services.EntityFramework.Services
             _context.Events
                 .AsNoTracking()
                 .Include(e => e.Organizer)
+                .ThenInclude(user => user.Roles)
                 .Include(e => e.Speaker)
+                .ThenInclude(user => user.Roles)
                 .Select(e => _mapper.Map<Event>(e))
                 .AsAsyncEnumerable();
-
-
 
         public async Task<Event?> GetByIdAsync(int id)
         {
@@ -39,7 +39,9 @@ namespace Events.Services.EntityFramework.Services
             var dto = await _context.Events
                 .AsNoTracking()
                 .Include(e => e.Organizer)
+                    .ThenInclude(user => user.Roles)
                 .Include(e => e.Speaker)
+                    .ThenInclude(user => user.Roles)
                 .FirstOrDefaultAsync(e => e.Id == id);
 
             return dto is null ? null : _mapper.Map<Event>(dto);

@@ -1,9 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Events.Services.Entities;
+using Microsoft.AspNetCore.Identity;
 
 namespace Events.Services.EntityFramework.Entities
 {
-    [Table("event")]
+    [Table("Event", Schema = "Identity")]
     public class EventDTO
     {
         [Key]
@@ -30,15 +32,15 @@ namespace Events.Services.EntityFramework.Entities
         [Column(TypeName = "nvarchar")]
         public string? Address { get; set; }
 
-        [ForeignKey("Organizer")]
-        [Column(name: "organizer_id")]
-        public int? OrganizerId { get; set; }
+       [ForeignKey("Organizer")]
+       [Column(name: "organizer_id")]
+       public string? OrganizerId { get; set; }
 
-        [ForeignKey("Speaker")]
-        [Column(name: "speaker_id")]
-        public int? SpeakerId { get; set; }
-        
-        public virtual OrganizerDTO? Organizer { get; set; }
-        public virtual SpeakerDTO? Speaker { get; set; }
+       [ForeignKey("Speaker")]
+      [Column(name: "speaker_id")]
+      public string? SpeakerId { get; set; }
+
+     public virtual UserDTO? Organizer { get; set; }
+      public virtual UserDTO? Speaker { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using Events.Services.Entities;
 using Events.Services.Services;
 using EventsWebApi.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EventsWebApi.Controllers
@@ -11,28 +12,25 @@ namespace EventsWebApi.Controllers
     public class EventController : ControllerBase
     {
         private readonly IEventService _eventService;
-        private IMapper _mapper;
+        private readonly IMapper _mapper;
 
         public EventController(IEventService eventService, IMapper mapper)
         {
-            _eventService = eventService;
-            _mapper = mapper;
+            _eventService = eventService ?? throw new ArgumentNullException(nameof(eventService));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
+        //[Authorize(AuthenticationSchemes = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme, Roles = "speaker")]
         [HttpGet]
         public IAsyncEnumerable<Event> GetAllEvents() =>
             _eventService.GetAllEventsAsync();
 
+        //[Authorize(AuthenticationSchemes = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme, Roles = "organizer")]
         [HttpGet("{id}")]
         public async Task<ActionResult<Event>> GetEventById(int id)
         {
             var e = await _eventService.GetByIdAsync(id);
-            if (e is null)
-            {
-                return NotFound();
-            }
-
-            return e;
+            return e is null ? NotFound() : e;
         }
 
         [HttpPost]

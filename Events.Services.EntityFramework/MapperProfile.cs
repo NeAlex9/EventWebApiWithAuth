@@ -11,10 +11,10 @@ namespace Events.Services.EntityFramework
             this.CreateMap<Event, EventDTO>()
                 .ReverseMap();
 
-            this.CreateMap<Organizer, OrganizerDTO>()
+            this.CreateMap<User, UserDTO>()
                 .ReverseMap();
 
-            this.CreateMap<Speaker, SpeakerDTO>()
+            this.CreateMap<Role, RoleDTO>()
                 .ReverseMap();
         }
     }
