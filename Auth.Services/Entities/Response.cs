@@ -2,9 +2,21 @@
 {
     public class Response
     {
-        public string Status { get; set; }
+        public Response(bool success, string message, string? token)
+        {
+            Success = success;
+            Message = message ?? throw new ArgumentNullException(nameof(message));
+            Token = token;
+        }
+
+        public Response(string message) :
+            this(false, message, null)
+        {
+        }
+
+        public bool Success { get; set; }
 
         public string Message { get; set; }
-        public string Token { get; set; }
+        public string? Token { get; set; }
     }
 }

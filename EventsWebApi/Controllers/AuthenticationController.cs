@@ -19,17 +19,17 @@ namespace EventsWebApi.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult<string>> LogIn([FromBody] UserCredentials userCredentials)
+        public async Task<ActionResult<Response>> LogIn([FromBody] UserCredentials userCredentials)
         {
-            var token = await _authenticationService.LogInAsync(userCredentials);
-            return token is null ? BadRequest() : token;
+            var response = await _authenticationService.LogInAsync(userCredentials);
+            return response.Success ? response : BadRequest(response);
         }
 
         [HttpPost("register")]
-        public async Task<ActionResult<string>> Register([FromBody] RegisterModel user)
+        public async Task<ActionResult<Response>> Register([FromBody] RegisterModel user)
         {
-            var token = await _authenticationService.RegisterAsync(user);
-            return token is null ? BadRequest() : token;
+            var response = await _authenticationService.RegisterAsync(user);
+            return response.Success ? response : BadRequest(response);
         }
     }
 }
