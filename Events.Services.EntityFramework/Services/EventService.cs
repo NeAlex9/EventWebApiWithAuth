@@ -49,7 +49,7 @@ namespace Events.Services.EntityFramework.Services
 
         public async Task<int> CreateAsync(Event e)
         {
-            ArgumentNullException.ThrowIfNull(e);
+            ArgumentNullException.ThrowIfNull(e); 
             var dto = _mapper.Map<EventDTO>(e);
             await _context.Events.AddAsync(dto);
             await _context.SaveChangesAsync();

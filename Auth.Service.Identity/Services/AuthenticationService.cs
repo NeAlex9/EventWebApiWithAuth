@@ -26,6 +26,7 @@ namespace Auth.Service.Identity.Services
 
         public async Task<Response> LogInAsync(UserCredentials userCredentials)
         {
+            ArgumentNullException.ThrowIfNull(nameof(userCredentials));
             var user = await _userManager.FindByNameAsync(userCredentials.UserName);
 
             if (user != null && await _userManager.CheckPasswordAsync(user, userCredentials.Password))
@@ -41,6 +42,7 @@ namespace Auth.Service.Identity.Services
 
         public async Task<Response> RegisterAsync(RegisterModel user)
         {
+            ArgumentNullException.ThrowIfNull(nameof(user));
             var userExists = await _userManager.FindByNameAsync(user.UserName);
             if (userExists != null)
             {

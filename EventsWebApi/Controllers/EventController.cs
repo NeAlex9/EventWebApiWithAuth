@@ -20,12 +20,12 @@ namespace EventsWebApi.Controllers
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
-        //[Authorize(AuthenticationSchemes = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme, Roles = "speaker")]
+        [Authorize(Roles = "speaker")]
         [HttpGet]
         public IAsyncEnumerable<Event> GetAllEvents() =>
             _eventService.GetAllEventsAsync();
 
-        //[Authorize(AuthenticationSchemes = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme, Roles = "organizer")]
+        [Authorize(Roles = "organizer")]
         [HttpGet("{id}")]
         public async Task<ActionResult<Event>> GetEventById(int id)
         {
