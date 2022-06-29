@@ -4,6 +4,8 @@
  
 Чтобы создать базу данных надо запустить script в папке EventsWebApi/EventDB.sql.
 
+url для Swagger https://localhost:55059/swagger/index.html
+
 Пользователи: 
 
 	1) id: "a4a30721-0002-4eaf-a703-2c1512b36b82"
